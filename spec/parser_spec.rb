@@ -16,7 +16,7 @@
 require 'spec_helper'
 
 describe RefererParser::Parser do
-  let(:remote_file) { "https://raw.githubusercontent.com/snowplow/referer-parser/master/ruby/data/referers.json" }
+  let(:remote_file) { "https://raw.githubusercontent.com/snowplow-referer-parser/referer-parser/master/resources/referers.yml" }
   let(:default_parser) { RefererParser::Parser.new }
   let(:internal_parser) { RefererParser::Parser.new(fixture('internal.json')) }
   let(:combined_parser) { RefererParser::Parser.new([RefererParser::Parser::DefaultFile, fixture('internal.json')]) }

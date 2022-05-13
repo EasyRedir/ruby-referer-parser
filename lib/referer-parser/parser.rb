@@ -20,7 +20,7 @@ require 'cgi'
 
 module RefererParser
   class Parser
-    DefaultFile = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'data', 'referers.json')).freeze
+    DefaultFile = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'data', 'referers.yml')).freeze
 
     # Create a new parser from one or more filenames/uris, defaults to ../data/referers.json
     def initialize(uris = DefaultFile)
@@ -191,7 +191,7 @@ module RefererParser
       if uri =~ /\A(?:ht|f)tps?:\/\//
         require 'open-uri'
         begin
-          open(uri).read
+          URI.open(uri).read
         rescue OpenURI::HTTPError
           raise InvalidUriError.new("Cannot load referer data from URI #{uri} -- #{$ERROR_INFO}", $ERROR_INFO)
         end
